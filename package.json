@@ -1,40 +1,25 @@
 {
   "name": "myportfolio",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "prepare": "svelte-kit sync || echo ''",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-    "lint": "eslint . && prettier --check .",
-    "format": "prettier --write .",
-    "deploy": "npm run build && npx gh-pages -d build"
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Islam0S/myportfolio#readme",
+  "bugs": {
+    "url": "https://github.com/Islam0S/myportfolio/issues"
   },
-  "devDependencies": {
-    "@eslint/compat": "^1.4.0",
-    "@eslint/js": "^9.38.0",
-    "@sveltejs/adapter-auto": "^7.0.0",
-    "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.47.1",
-    "@sveltejs/vite-plugin-svelte": "^6.2.1",
-    "@tailwindcss/vite": "^4.1.14",
-    "@types/node": "^24",
-    "eslint": "^9.38.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-svelte": "^3.12.4",
-    "gh-pages": "^6.3.0",
-    "globals": "^16.4.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.7.1",
-    "svelte": "^5.41.0",
-    "svelte-check": "^4.3.3",
-    "tailwindcss": "^4.1.14",
-    "typescript": "^5.9.3",
-    "vite": "^7.1.10"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Islam0S/myportfolio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "lodash": "^4.17.23"
   }
 }

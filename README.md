@@ -1,8 +1,9 @@
-what i used : svelte and tailwindcss
+### What is this:
+Is just a simple Personal Website that I build for myself.
 
-what i need to add ?
--make the website responsive.
--add a project section.
-
-
+### Teckstack:
+- Express js
+- Ejs
+- MySQL
+- My brain (not really that useful).
 
