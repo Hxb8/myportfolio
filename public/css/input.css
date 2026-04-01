@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+  .lang-button {
+    @apply px-3 gap-2 py-2 hover:bg-stone-800 items-center text-2xl w-full flex bg-stone-900 rounded-2xl;
+  }
+}
