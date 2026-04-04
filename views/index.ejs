@@ -3,14 +3,17 @@
 
 <%- include('./partials/head.ejs')%>
  
-	<body>
+	<body class="text-gray-100 bg-black">
       <%- include('./partials/nav.ejs')%>
-	    <div>
-        <h2 class="bg-black">All Blogs</h2>
+
+      <h2 class="text-4xl font-bold p-5">All Blogs</h2>
+	    <div class="bg-stone-900 text-gray-100 flex flex-col m-10 rounded-lg p-10 space-y-10">
         <% if (blogs.length > 0) { %>
               <% blogs.forEach(blog => { %>
-                   <h3 class="title"><%= blog.title%></h3>
-                   <p class="snippet"><%= blog.snippet%></p>
+                    <a href="/blogs/<%= blog.id%>"> 
+                      <h3 class="font-bold"><%= blog.title%></h3>
+                      <p class="bg-red-900 p-5 rounded-lg"><%= blog.snippet%></p>
+                    </a> 
                 <% }) %>  
         <% } else {%>
               <p>There are no blogs to display...</p> 

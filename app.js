@@ -1,49 +1,98 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const Blog = require('./models/blog.js');
 
-// mocking Data
-const blogs = [
-  {
-    title: 'Email Injection Attack',
-    snippet: 'Bug Bounty writeup about an email injection attack'
-  },
-  {
-    title: 'Race condition Bug that break the 1 limit',
-    snippet: 'This bug can lead to a big financial lose'
-  },
-  {
-    title: 'Information Disclosure',
-    snippet: 'A Low level user can enumerate all emails of workspace members'
-  }
-]
+
+// connect to mangodb 
+
+mongoose.connect(dbURI)
+  .then((result)=> app.listen(3000))
+  .catch((err)=> console.log(err));
 
 // register a view engine (ejs)
 app.set('view engine', 'ejs');
 
 
-// listen for requests
-app.listen(3000);
 
-// logs
-app.use(morgan('dev'));
+
+
 
 
 // middleware & static files
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(morgan('dev'));
+
+// routes
+
 
 app.get('/', (req, res)=> {
-  res.render('index', { title: 'Home', blogs});
+  
+  res.redirect('/blogs');
+
 })
 
 app.get('/about', (req, res)=> {
   res.render('about', {title: 'About'});
 })
 
+// blog routes
+app.get('/blogs', (req, res)=> {
+
+  Blog.find().sort({ createdAt: -1 })
+  .then((result)=> {
+      res.render('index', {title: 'Blogs', blogs: result});
+
+    })
+  .catch((err)=> {console.log(err);})
+
+
+})
+
+
+app.post('/blogs', (req, res)=> {
+  const blog = new Blog(req.body); 
+  
+  blog.save()
+    .then((result)=>{
+      res.redirect('/blogs')
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
+
+app.get('/blogs/:id', (req, res)=> {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then(result => {
+      res.render('details', {title: 'Blog Details', blog: result})
+    })
+    .catch(err => {
+      console.log(err);
+    })
+})
+
+
+app.delete('/blogs/:id', (req, res)=> {
+  const id = req.params.id;
+
+  Blog.findByIdAndDelete(id)
+   .then(result => {
+      res.json({ redirect: '/blogs' })
+    })
+   .catch(err => {
+      console.log(err);
+    })
+
+})
+
+
 app.get('/blogs/create', (req, res)=> {
   res.render('create', {title: 'Create a New Blog'});
 })
-
 
 
 

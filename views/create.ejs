@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs')%>
-<body>
-      <%- include('./partials/nav.ejs')%>       
-      <div>
-        <form>
-          <label for="title">Blog title:</label>
-          <input id="title" type="text" required>
-          <label for="snippet">Blog snippet:</label>
-          <input id="snippet" type="text" required>
-          <label for="body">Blog body:</label>
-          <textarea id="body" required></textarea>
-          <submit>Submit</submit>
+<body class="bg-black">
+      
+      <div class="text-gray-100">
+        <%- include('./partials/nav.ejs')%> 
+        <form action='/blogs' method="POST" class="flex flex-col p-10 items-center m-10 rounded-lg gap-5 bg-stone-900">
+          <label class="text-red-900 text-lg" for="title">Blog title:</label>
+          <input class="rounded-lg text-black py-2 px-4"id="title" type="text" name="title" required>
+          <label class="text-red-900 text-lg" for="snippet">Blog snippet:</label>
+          <input class="rounded-lg text-black py-2 px-4" id="snippet" type="text" name="snippet" required>
+          <label class="text-red-900 text-lg"  for="body">Blog body:</label>
+          <textarea class="rounded-lg text-black py-2 px-4" id="body" name="body" required></textarea>
+          <button class="px-4 py-2 bg-red-900 rounded-2xl">Submit</button>
         </form>
       </div>
       
