@@ -1,5 +1,5 @@
 import { mdsvex, escapeSvelte } from 'mdsvex';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import { createHighlighter } from 'shiki';
@@ -25,7 +25,12 @@ export default defineConfig({
 						? undefined
 						: true
 			},
-			adapter: adapter(),
+			adapter: adapter({
+				pages: 'build',
+				assets: 'build',
+				fallback: undefined,
+				precompress: false
+			}),
 			preprocess: [
 				mdsvex({
 					extensions: ['.md'],
@@ -38,7 +43,7 @@ export default defineConfig({
 							return `{@html \`${html}\`}`;
 						}
 					},
-					remarkPlugins: [remarkToc, { tight: true }],
+					remarkPlugins: [[remarkToc, { tight: true }]],
 					rehypePlugins: [rehypeSlug]
 				})
 			],
