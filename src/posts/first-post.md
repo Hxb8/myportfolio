@@ -11,7 +11,7 @@ published: true
 
 ## Markdown
 
-Hey friends 
+Hey friends 🔥
 
 
 ```ts

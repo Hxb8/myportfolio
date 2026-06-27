@@ -146,7 +146,7 @@ li {
 }
 
 .prose :is(ul, ol) {
-  list-style-type: '';
+  list-style-type: '🔥';
   padding-left: var(--size-5);
 }
 

@@ -38,6 +38,7 @@
 		"@fontsource/manrope": "^5.2.8",
 		"@lucide/svelte": "^1.21.0",
 		"lucide-svelte": "^1.0.1",
-		"open-props": "^1.7.23"
+		"open-props": "^1.7.23",
+		"shiki": "^4.3.0"
 	}
 }
