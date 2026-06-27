@@ -1,3 +1,4 @@
+export const prerender = true;
 import * as config from '$lib/config'
 import type { Post } from '$lib/types'
 
